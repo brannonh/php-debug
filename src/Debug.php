@@ -5,7 +5,7 @@ class Debug {
   private $data;
   private $max_entries;
 
-  public function __construct($filename = 'debug.log', $data = array(), $max_entries = 500) {
+  public function __construct($filename = 'debug.json', $data = array(), $max_entries = 500) {
     $this->filename = $filename;
     $this->data = is_array($data) ? $data : array($data);
     $this->max_entries = $max_entries;
@@ -45,7 +45,7 @@ class Debug {
     $file = $this->get_log_contents();
 
     if ($file !== false) {
-      $file = $this->unserialize($file);
+      $file = $this->decode($file);
 
       if (!is_array($data) || $this->valid_log_entry($data)) {
         $data = array($data);
@@ -66,7 +66,7 @@ class Debug {
 
       try {
         $debug_log = fopen($this->filename, 'w');
-        fwrite($debug_log, $this->serialize($file));
+        fwrite($debug_log, $this->encode($file));
         fclose($debug_log);
       } catch (Exception $ex) {
         // Ignore.
@@ -120,13 +120,13 @@ class Debug {
     );
   }
 
-  private function serialize($data) {
-    return serialize($data);
+  private function encode($data) {
+    return json_encode($data);
   }
 
-  private function unserialize($data) {
-    $result = unserialize($data);
-    if ($result === false) {
+  private function decode($data) {
+    $result = json_decode($data);
+    if ($result === null) {
       $result = array();
     }
 
