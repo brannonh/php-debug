@@ -74,6 +74,10 @@ class Debug {
     }
   }
 
+  public function log_all() {
+    $this->log_data(array_keys($this->data));
+  }
+
   public function log_data($keys) {
     if (!is_array($keys)) {
       $keys = array($keys);
