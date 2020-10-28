@@ -36,7 +36,7 @@ $debug->log_data('counter');
 
 ## API
 
-The following function documentation is sorted alphabetically. To learn the basics and get started quickly, we recommend reading [__construct], [set], [get], [merge], [log_data], and [log_all].
+The following API documentation is sorted alphabetically. To learn the basics and get started quickly, we recommend reading [__construct], [set], [get], [merge], [log_data], and [log_all].
 
   - [__construct]
   - [count]
@@ -52,7 +52,7 @@ The following function documentation is sorted alphabetically. To learn the basi
 
 ### `__construct($filename, $data, $log_now, $max_entries)`
 
-All the parameters of the constructor have default values, so none are necessary to get started with `Debug`. The `$data` parameter sets the internal data store and should always be an associative array. The behavior of `Debug` is undefined when it is set to a scalar or an object.
+All the parameters of the constructor have default values, so none are necessary to get started with `Debug`. The `$data` parameter sets the internal data store and should always be an associative array. The behavior of `Debug` is undefined when `$data` is set to a scalar or an object.
 
 #### Parameters
 
