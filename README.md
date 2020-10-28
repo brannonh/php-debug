@@ -26,7 +26,7 @@ $debug->set('counter', 0);
 $debug->increase('counter');
 ```
 
-When logging, data is stored in as JSON at your file location of choice (by default, `debug.log` in the same directory as `Debug.php`).
+When logging, data is stored in as JSON at your file location of choice (by default, `debug.json` in the same directory as `Debug.php`).
 
 ```php
 // Save data to the log file.

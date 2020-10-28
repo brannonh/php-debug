@@ -13,6 +13,10 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [Unreleased]
 
+TBD
+
+## [1.0.0]
+
 ### Added
 
   - `Debug` class
@@ -28,7 +32,8 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
   - Default log file from `debug.log` to `debug.json`
 
 <!-- Version Links -->
-[Unreleased]: https://github.com/brannonh/php-debug
+[Unreleased]: https://github.com/brannonh/php-debug/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/brannonh/releases/tag/1.0.0
 
 <!-- External Links -->
 [Keep a Changelog]: https://keepachangelog.com/en/1.0.0
