@@ -13,7 +13,9 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [Unreleased]
 
-TBD
+### Changed
+
+  - README documentation for clarity
 
 ## [1.0.0]
 
