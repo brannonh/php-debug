@@ -5,10 +5,14 @@ class Debug {
   private $data;
   private $max_entries;
 
-  public function __construct($filename = 'debug.json', $data = array(), $max_entries = 500) {
+  public function __construct($filename = 'debug.json', $data = array(), $log_now = false, $max_entries = 500) {
     $this->filename = $filename;
     $this->data = is_array($data) ? $data : array($data);
     $this->max_entries = $max_entries;
+
+    if ($log_now === true) {
+      $this->log_all();
+    }
   }
 
   public function count($key) {

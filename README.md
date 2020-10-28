@@ -6,6 +6,12 @@ Simple debugging class for use in PHP scripts
 
 Use this class if you need to gather debugging information without access to a debugger, like in a customer's environment.
 
+## Support
+
+This library has not been tested on PHP versions prior to 5.3.29. If you try it, please let us know how it goes by opening a new issue.
+
+If you find problems on any other versions, please also let us know in a new issue.
+
 ## Usage
 
 To use php-debug, simply drop the `Debug.php` file somewhere in your source files and `include` or `require` it in the file that needs to be debugged. Then, create a new `Debug` object and use it to gather, save, and log data.
@@ -40,8 +46,9 @@ $debug->log_data('counter');
 
 | Parameter | Type | Required | Default | Notes |
 | --- | --- | :---: | --- | --- |
-| `$filename` | string |  | `'debug.log'` | The default file is created in the same directory as `Debug.php`. |
+| `$filename` | string |  | `'debug.json'` | The default file is created in the same directory as `Debug.php`. |
 | `$data` | array |  | `array()` | Use this to initialize the saved data. |
+| `$log_now` | boolean |  | `false` | Log any initialized data immediately. |
 | `$max_entries` | integer |  | `500` | The log file will be limited to this many entries (not lines). |
 
 #### Returns

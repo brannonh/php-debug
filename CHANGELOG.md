@@ -15,11 +15,12 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ### Added
 
-  - Debug class
+  - `Debug` class
   - README documentation
   - `composer.json` (and published to [Packagist])
   - `log_all` function
   - `CHANGELOG.md` (following [Keep a Changelog])
+  - Ability to log at the time of object creation
 
 ### Changed
 
