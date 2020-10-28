@@ -26,21 +26,33 @@ $debug->set('counter', 0);
 $debug->increase('counter');
 ```
 
-When logging, data is stored in a `serialize`d array at your file location of choice (by default, `debug.log` in the same directory as `Debug.php`).
+When logging, data is stored in as JSON at your file location of choice (by default, `debug.log` in the same directory as `Debug.php`).
 
 ```php
 // Save data to the log file.
-
 $debug->log_data('hello');
-// Log File: a:1:{i:0;a:3:{s:9:"timestamp";s:19:"2020/01/01 00:00:00";s:4:"name";s:5:"hello";s:4:"data";s:5:"world";}}
-
 $debug->log_data('counter');
-// Log File: a:2:{i:0;a:3:{s:9:"timestamp";s:19:"2020/01/01 00:00:00";s:4:"name";s:5:"hello";s:4:"data";s:5:"world";}i:1;a:3:{s:9:"timestamp";s:19:"2020/01/01 00:00:01";s:4:"name";s:7:"counter";s:4:"data";i:1;}}
 ```
 
 ## API
 
-### `__construct($filename, $data, $max_entries)`
+The following function documentation is sorted alphabetically. To learn the basics and get started quickly, we recommend reading [__construct], [set], [get], [merge], [log_data], and [log_all].
+
+  - [__construct]
+  - [count]
+  - [decrease]
+  - [get]
+  - [increase]
+  - [is_empty]
+  - [log_all]
+  - [log_data]
+  - [log]
+  - [merge]
+  - [set]
+
+### `__construct($filename, $data, $log_now, $max_entries)`
+
+All the parameters of the constructor have default values, so none are necessary to get started with `Debug`. The `$data` parameter sets the internal data store and should always be an associative array. The behavior of `Debug` is undefined when it is set to a scalar or an object.
 
 #### Parameters
 
@@ -57,7 +69,11 @@ $debug->log_data('counter');
 | --- | --- |
 | `Debug` | The `Debug` object |
 
+[:tophat:](#api)
+
 ### `count($key)`
+
+Count the number of values in the array or the number of characters in the string stored at `$key`.
 
 #### Parameters
 
@@ -71,7 +87,11 @@ $debug->log_data('counter');
 | --- | --- |
 | integer | The number of elements in the array (using `count`) or string (using `strlen`) |
 
+[:tophat:](#api)
+
 ### `is_empty($key)`
+
+Get the result of PHP's `empty()` function for the data element stored at `$key`.
 
 #### Parameters
 
@@ -85,7 +105,11 @@ $debug->log_data('counter');
 | --- | --- |
 | boolean | Whether or not the element is `empty` |
 
+[:tophat:](#api)
+
 ### `decrease($key, $val)`
+
+Perform `--` or `-=` operations on the data element stored at `$key`.
 
 #### Parameters
 
@@ -100,7 +124,11 @@ $debug->log_data('counter');
 | --- | --- |
 | void |  |
 
+[:tophat:](#api)
+
 ### `get($key)`
+
+Obtain the value of the data element stored at `$key`.
 
 #### Parameters
 
@@ -114,7 +142,11 @@ $debug->log_data('counter');
 | --- | --- |
 | mixed | The value of the requested data element |
 
+[:tophat:](#api)
+
 ### `increase($key, $val)`
+
+Perform `++` or `+=` operations on the data element stored at `$key`.
 
 #### Parameters
 
@@ -129,13 +161,17 @@ $debug->log_data('counter');
 | --- | --- |
 | void |  |
 
-### `log($data)`
+[:tophat:](#api)
+
+### `log_all()`
+
+Write all stored data elements to the log file.
 
 #### Parameters
 
 | Parameter | Type | Required | Default | Notes |
 | --- | --- | :---: | --- | --- |
-| `$data` | mixed | :heavy_check_mark: |  | The data element to log (can be a single value or multiple values in an integer-indexed array ) |
+|  | void |  |  |  |
 
 #### Returns
 
@@ -143,7 +179,11 @@ $debug->log_data('counter');
 | --- | --- |
 | void |  |
 
+[:tophat:](#api)
+
 ### `log_data($keys)`
+
+Write the data elements stored at `$keys` to the log file.
 
 #### Parameters
 
@@ -157,7 +197,31 @@ $debug->log_data('counter');
 | --- | --- |
 | void |  |
 
+[:tophat:](#api)
+
+### `log($data)`
+
+Write miscellaneous data to the log file.
+
+In general we recommend using [log_all] or [log_data], but this function is provided for any special cases that may present themselves. `log_all` and `log_data` use this function internally.
+
+#### Parameters
+
+| Parameter | Type | Required | Default | Notes |
+| --- | --- | :---: | --- | --- |
+| `$data` | mixed | :heavy_check_mark: |  | The data element to log (can be a single value or multiple values in an integer-indexed array ) |
+
+#### Returns
+
+| Type | Notes |
+| --- | --- |
+| void |  |
+
+[:tophat:](#api)
+
 ### `merge($key, $data)`
+
+Merge the `$data` array into the data element stored at `$key`. This is an easy way to update multiple values in a data element at once. Assumes `$key` references an array.
 
 #### Parameters
 
@@ -172,7 +236,11 @@ $debug->log_data('counter');
 | --- | --- |
 | void |  |
 
+[:tophat:](#api)
+
 ### `set($key, $data)`
+
+Save `$data` as the value of the data element stored at `$key`.
 
 #### Parameters
 
@@ -187,12 +255,16 @@ $debug->log_data('counter');
 | --- | --- |
 | void |  |
 
+[:tophat:](#api)
+
 <!--
+### `function_name($parameters)`
+
 #### Parameters
 
 | Parameter | Type | Required | Default | Notes |
 | --- | --- | :---: | --- | --- |
-|  |  |  |  |  |
+| `$` |  | :heavy_check_mark: |  |  |
 
 #### Returns
 
@@ -200,3 +272,16 @@ $debug->log_data('counter');
 | --- | --- |
 |  |  |
 -->
+
+<!-- API Links -->
+[__construct]: #__constructfilename-data-log_now-max_entries
+[count]: #countkey
+[decrease]: #decreasekey-val
+[get]: #getkey
+[increase]: #increasekey-val
+[is_empty]: #is_emptykey
+[log_all]: #log_all
+[log_data]: #log_datakeys
+[log]: #logdata
+[merge]: #mergekey-data
+[set]: #setkey-data
