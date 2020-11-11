@@ -201,9 +201,9 @@ Write the data elements stored at `$keys` to the log file.
 
 ### `log($data)`
 
-Write miscellaneous data to the log file.
+Write data directly to the log file without saving it as a data element.
 
-In general we recommend using [log_all] or [log_data], but this function is provided for any special cases that may present themselves. `log_all` and `log_data` use this function internally.
+[log_all] and [log_data] interact with saved data elements, but this function skips that step for cases when you just want to log current values. `log_all` and `log_data` use this function internally.
 
 #### Parameters
 
