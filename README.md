@@ -199,7 +199,7 @@ Write the data elements stored at `$keys` to the log file.
 
 [:tophat:](#api)
 
-### `log($data)`
+### `log($data, $raw)`
 
 Write data directly to the log file without saving it as a data element.
 
@@ -210,6 +210,7 @@ Write data directly to the log file without saving it as a data element.
 | Parameter | Type | Required | Default | Notes |
 | --- | --- | :---: | --- | --- |
 | `$data` | mixed | :heavy_check_mark: |  | The data element to log (can be a single value or multiple values in an integer-indexed array ) |
+| `$raw` | boolean |  | `true` | Whether or not to treat `$data` as a single value and log it as-is<br><br>When this is `false`, `$data` is treated as if it had been saved with `set()`. When this is `true`, you cannot save multiple values in `$data`. |
 
 #### Returns
 

@@ -45,11 +45,15 @@ class Debug {
     $this->data[$key] += $val;
   }
 
-  public function log($data) {
+  public function log($data, $raw = true) {
     $file = $this->get_log_contents();
 
     if ($file !== false) {
       $file = $this->decode($file);
+
+      if ($raw) {
+        $data = $this->get_log_entry($data);
+      }
 
       if (!is_array($data) || $this->valid_log_entry($data)) {
         $data = array($data);
@@ -93,7 +97,7 @@ class Debug {
       array_push($entries, $this->get_log_entry($this->data[$key], $key));
     }
 
-    $this->log($entries);
+    $this->log($entries, false);
   }
 
   public function merge($key, $data) {

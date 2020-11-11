@@ -17,6 +17,10 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
   - README documentation for clarity
 
+### Fixed
+
+  - `log` not allowing an array passed in for logging to be treated as a single value
+
 ## [1.0.0]
 
 ### Added
