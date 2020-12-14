@@ -10,7 +10,7 @@ class Debug {
     $this->data = is_array($data) ? $data : array($data);
     $this->max_entries = $max_entries;
 
-    // Suppress timezone warnings.
+    // Suppress time zone warnings.
     date_default_timezone_set(date_default_timezone_get());
 
     if ($log_now === true) {

@@ -20,7 +20,7 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 ### Fixed
 
   - `log` not allowing an array passed in for logging to be treated as a single value
-  - Warning generated when PHP's default timezone not set
+  - Warning generated when PHP's default time zone not set
 
 ## [1.0.0]
 
