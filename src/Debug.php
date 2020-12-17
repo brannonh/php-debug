@@ -11,7 +11,7 @@ class Debug {
     $this->max_entries = $max_entries;
 
     // Suppress time zone warnings.
-    date_default_timezone_set(date_default_timezone_get());
+    date_default_timezone_set(@date_default_timezone_get());
 
     if ($log_now === true) {
       $this->log_all();
