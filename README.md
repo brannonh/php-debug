@@ -1,10 +1,13 @@
 # php-debug
 
-Simple debugging class for use in PHP scripts
+php-debug is a simple debugging class for use in PHP scripts. Use it when you don't have access to a debugger, like in a customer's environment, or you need to gather complex and/or larger amounts of data that are not feasible to analyze in a debugging session.
 
-## Setup
+## Features
 
-Use this class if you need to gather debugging information without access to a debugger, like in a customer's environment.
+  - Encapsulate debugging values in a single variable, making it much easier to identify and remove debugging code later.
+  - Save complex data structures, utilizing arrays.
+  - Keep only a specific number of log entries (the most recent, defaults to 500) to avoid filling up disk space.
+  - Log data in JSON format.
 
 ## Support
 
